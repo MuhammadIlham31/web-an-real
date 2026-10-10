@@ -39,14 +39,14 @@ export default function ContributorPage() {
     [contributors, q, pos]
   );
 
-  const inputCls = "rounded-full border border-border bg-white px-5 py-2.5 text-sm text-text-primary focus:outline-none focus:border-primary transition-colors";
+  const inputCls = "rounded-full border border-border bg-[#E3F2FD] px-5 py-2.5 text-sm text-text-primary focus:outline-none focus:border-primary transition-colors";
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header variant="light" />
       <main className="flex-1">
         {/* Hero */}
-        <section className="page-hero bg-navy text-white px-6 md:px-12 py-16 md:py-20">
+        <section className="page-hero bg-navy text-[#E3F2FD] px-6 md:px-12 py-16 md:py-20">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Say Hi to the amazing people behind it!</h1>
@@ -76,7 +76,7 @@ export default function ContributorPage() {
         </section>
 
         {/* Table */}
-        <section className="bg-white py-16 px-6 md:px-12">
+        <section className="bg-[#E3F2FD] py-16 px-6 md:px-12">
           <div className="max-w-5xl mx-auto">
             {err && (
               <div className="mb-6 rounded-xl bg-red-50 border border-red-200 px-5 py-4 text-sm text-red-600">
@@ -106,7 +106,7 @@ export default function ContributorPage() {
 
             <div className="overflow-x-auto rounded-2xl border border-border">
               <table className="w-full text-left text-sm">
-                <thead className="bg-navy text-white">
+                <thead className="bg-navy text-[#E3F2FD]">
                   <tr>
                     <th className="px-5 py-4 font-semibold w-14">#</th>
                     <th className="px-5 py-4 font-semibold">Kontributor</th>

@@ -68,11 +68,11 @@ function AchievementPageInner() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="page-hero px-6 py-16 text-center text-white md:px-12 md:py-20">
+        <section className="page-hero px-6 py-16 text-center text-[#E3F2FD] md:px-12 md:py-20">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <h1 className="page-title-compact mx-auto text-4xl font-bold text-white md:text-6xl">Achievement</h1>
+            <h1 className="page-title-compact mx-auto text-4xl font-bold text-[#E3F2FD] md:text-6xl">Achievement</h1>
           </div>
-          <p className="mx-auto mt-5 max-w-xl text-white/65">
+          <p className="mx-auto mt-5 max-w-xl text-[#E3F2FD]/65">
             Apresiasi kepada asisten atas usahanya yang luar biasa.
           </p>
         </section>
@@ -101,7 +101,7 @@ function AchievementPageInner() {
                 <span className={`text-sm font-medium transition-colors ${currentYear === ALL ? "text-text-primary font-bold text-base" : "text-text-light"}`}>
                   Semua
                 </span>
-                <div className={`rounded-full border-2 transition-all ${currentYear === ALL ? "bg-primary border-primary shadow-md w-5 h-5" : "bg-white border-border w-3 h-3"}`} />
+                <div className={`rounded-full border-2 transition-all ${currentYear === ALL ? "bg-primary border-primary shadow-md w-5 h-5" : "bg-[#E3F2FD] border-border w-3 h-3"}`} />
               </button>
               {years.map((y) => (
                 <button
@@ -112,13 +112,13 @@ function AchievementPageInner() {
                   <span className={`text-sm font-medium transition-colors ${y === currentYear ? "text-text-primary font-bold text-base" : "text-text-light"}`}>
                     {y}
                   </span>
-                  <div className={`rounded-full border-2 transition-all ${y === currentYear ? "bg-primary border-primary shadow-md w-5 h-5" : "bg-white border-border w-3 h-3"}`} />
+                  <div className={`rounded-full border-2 transition-all ${y === currentYear ? "bg-primary border-primary shadow-md w-5 h-5" : "bg-[#E3F2FD] border-border w-3 h-3"}`} />
                 </button>
               ))}
             </div>
             {/* Mobile dropdown */}
             <select
-              className="sm:hidden mt-4 w-full border border-border rounded-lg px-4 py-2 text-sm text-text-primary bg-white"
+              className="sm:hidden mt-4 w-full border border-border rounded-lg px-4 py-2 text-sm text-text-primary bg-[#E3F2FD]"
               value={currentYear ?? ""}
               onChange={(e) => selectYear(e.target.value)}
             >
@@ -133,12 +133,12 @@ function AchievementPageInner() {
         {/* Carousel card */}
         {currentCard && (
           <section className="max-w-6xl mx-auto px-6 md:px-12 pb-20">
-            <div className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden">
+            <div className="bg-[#E3F2FD] rounded-2xl shadow-sm border border-border overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* Left - Content */}
                 <div className="p-10 md:p-14 flex flex-col justify-center relative">
                   <button
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors disabled:opacity-30"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#E3F2FD] hover:bg-[#90CAF9] rounded-full flex items-center justify-center transition-colors disabled:opacity-30"
                     disabled={cardIdx === 0}
                     onClick={() => setCardIdx((i) => Math.max(0, i - 1))}
                   >
@@ -168,7 +168,7 @@ function AchievementPageInner() {
                     className="w-full h-full object-cover"
                   />
                   <button
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow transition-colors disabled:opacity-30"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#E3F2FD]/80 hover:bg-[#E3F2FD] rounded-full flex items-center justify-center shadow transition-colors disabled:opacity-30"
                     disabled={cardIdx >= yearItems.length - 1}
                     onClick={() => setCardIdx((i) => Math.min(yearItems.length - 1, i + 1))}
                   >

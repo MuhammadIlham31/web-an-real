@@ -9,10 +9,7 @@ const socials = [
 ];
 
 const events = [
-  { label: "NetSchool", href: "/netschool" },
-  { label: "Practicum Activity", href: "/practicum" },
-  { label: "NetTraining", href: "/activity" },
-  { label: "Check Certificate", href: "/certificate" },
+  { label: "NetSchool — Coming Soon", href: "/netschool" },
 ];
 
 const laboratory = [
@@ -24,9 +21,9 @@ const laboratory = [
 
 export default function Footer() {
   return (
-    <footer className="bg-footer-bg px-6 pb-6 pt-12 text-white md:px-12 md:pt-16 xl:px-20">
+    <footer className="bg-footer-bg px-6 pb-6 pt-12 text-[#E3F2FD] md:px-12 md:pt-16 xl:px-20">
       <div className="mx-auto max-w-[1440px]">
-        <div className="flex flex-col justify-between gap-8 border-b border-white/20 pb-9 md:flex-row md:items-end">
+        <div className="flex flex-col justify-between gap-8 border-b border-[#E3F2FD]/20 pb-9 md:flex-row md:items-end">
           <div>
             <div className="flex items-center gap-3">
               <Logo size={54} showText={false} />
@@ -42,7 +39,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-10 sm:grid-cols-4 md:gap-10">
           <div className="col-span-2 sm:col-span-1">
             <h2 className="editorial-label mb-4">Location / Bandung</h2>
-            <p className="max-w-[260px] text-sm leading-relaxed text-white/70">
+            <p className="max-w-[260px] text-sm leading-relaxed text-[#E3F2FD]/70">
               Telkom University Bandung, Gedung TULT Ruang 13.13
             </p>
           </div>
@@ -57,7 +54,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.name}
-                  className="flex h-10 w-10 items-center justify-center border border-white/25 transition-colors hover:border-primary hover:bg-primary"
+                  className="flex h-10 w-10 items-center justify-center border border-[#E3F2FD]/25 transition-colors hover:border-primary hover:bg-primary"
                 >
                   <img className="brightness-0 invert" src={social.icon} alt="" width={22} height={22} />
                 </a>
@@ -67,7 +64,7 @@ export default function Footer() {
 
           <div>
             <h2 className="editorial-label mb-4">Events</h2>
-            <ul className="space-y-2.5 text-sm text-white/70">
+            <ul className="space-y-2.5 text-sm text-[#E3F2FD]/70">
               {events.map((event) => (
                 <li key={event.label}>
                   <Link href={event.href} className="transition-colors hover:text-primary">
@@ -80,7 +77,7 @@ export default function Footer() {
 
           <div>
             <h2 className="editorial-label mb-4">Laboratory</h2>
-            <ul className="space-y-2.5 text-sm text-white/70">
+            <ul className="space-y-2.5 text-sm text-[#E3F2FD]/70">
               {laboratory.map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="transition-colors hover:text-primary">
@@ -92,7 +89,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between gap-2 border-t border-white/20 pt-4 font-mono text-[0.6rem] tracking-[0.12em] text-white/50 sm:flex-row">
+        <div className="flex flex-col justify-between gap-2 border-t border-[#E3F2FD]/20 pt-4 font-mono text-[0.6rem] tracking-[0.12em] text-[#E3F2FD]/50 sm:flex-row">
           <span>© 2023 – {new Date().getFullYear()} ADAPTIVE NETWORK LABORATORY</span>
           <span>MADE AT TELKOM UNIVERSITY / INDONESIA</span>
         </div>

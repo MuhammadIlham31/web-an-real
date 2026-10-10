@@ -29,15 +29,15 @@ export default function TeamPage() {
   const active = tabs.find((t) => t.id === tab);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[#E3F2FD]">
       <Header variant="light" />
 
       <main className="flex-1">
         {/* About The Team */}
-        <section className="page-hero px-6 py-16 text-white md:px-12 md:py-20">
+        <section className="page-hero px-6 py-16 text-[#E3F2FD] md:px-12 md:py-20">
           <div className="mx-auto max-w-7xl">
-            <h1 className="mb-6 text-5xl font-bold text-white md:text-7xl">About The Team</h1>
-            <p className="max-w-3xl text-lg leading-relaxed text-white/70">
+            <h1 className="mb-6 text-5xl font-bold text-[#E3F2FD] md:text-7xl">About The Team</h1>
+            <p className="max-w-3xl text-lg leading-relaxed text-[#E3F2FD]/70">
               Yuk, kenalan sama anggota dari Adaptive Network Laboratory. Kami tergabung dari
               beberapa mahasiswa yang dibagi menjadi dua bagian yaitu asisten praktikum dan
               asisten riset. Jika membutuhkan sesuatu, kamu bisa menghubungi asisten melalui

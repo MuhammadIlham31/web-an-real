@@ -1,154 +1,66 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 
-const navItems = [
-  { label: "About Lab", href: "/about" },
-  { label: "Programs", href: "/activity" },
-  { label: "Practicum", href: "/practicum" },
-  { label: "Research", href: "/research" },
-  { label: "Team", href: "/team" },
-  { label: "Alumni", href: "/alumni" },
-  { label: "Achievements", href: "/achievement" },
-  { label: "Contributors", href: "/contributor" },
-  { label: "Certificate", href: "/certificate" },
-];
-
 export default function Header({ className = "" }) {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const menuButtonRef = useRef(null);
-  const navigationRef = useRef(null);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    const updateScrollState = () => setScrolled(window.scrollY > 24);
+    let lastScrollY = window.scrollY;
+    const updateScrollState = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 24);
+      setHidden(currentScrollY > 80 && currentScrollY > lastScrollY);
+      lastScrollY = currentScrollY;
+    };
     updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
 
-  useEffect(() => {
-    if (!menuOpen) return undefined;
-
-    navigationRef.current?.focus();
-    const onKeyDown = (event) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-      menuButtonRef.current?.focus();
-    };
-  }, [menuOpen]);
-
   return (
     <>
       <header
-        aria-hidden={!scrolled && !menuOpen}
-        className={`fixed inset-x-0 top-0 z-[70] w-full border-b backdrop-blur-xl transition-[opacity,transform,background-color,color] duration-300 ${
-          scrolled || menuOpen
-            ? "translate-y-0 border-black/10 bg-white/90 text-navy opacity-100"
-            : "pointer-events-none -translate-y-full border-transparent bg-transparent text-white opacity-0"
+        className={`fixed inset-x-3 top-3 z-[70] w-auto rounded-full border shadow-[0_12px_32px_rgb(13_71_161_/_0.08)] backdrop-blur-xl transition-[opacity,transform,background-color,color,box-shadow] duration-300 md:inset-x-6 lg:inset-x-10 ${hidden ? "-translate-y-[calc(100%+1rem)] opacity-0" : "translate-y-0 opacity-100"} ${
+        scrolled
+          ? "border-[#0D47A1]/15 bg-[#E3F2FD]/95 text-[#0D47A1] shadow-[0_16px_40px_rgb(13_71_161_/_0.12)]"
+          : "border-[#0D47A1]/10 bg-white/80 text-[#0D47A1]"
         } ${className}`}
       >
       <div className="mx-auto flex w-full items-center justify-between px-5 py-3.5 md:px-10 lg:px-14">
         <Link href="/" aria-label="Adaptive Network Laboratory - beranda" className="group relative z-[60]">
           <Logo
             size={42}
-            textColor={scrolled || menuOpen ? "text-navy" : "text-white"}
+            textColor="text-[#0D47A1]"
             className="[&_span]:font-display [&_span]:text-[0.72rem] [&_span]:uppercase [&_span]:tracking-[0.08em] [&_span]:transition-colors group-hover:[&_span]:text-primary md:[&_span]:text-sm"
           />
         </Link>
 
+        <nav aria-label="Navigasi cepat" className={`hidden items-center gap-7 font-mono text-[0.62rem] uppercase tracking-[0.12em] lg:flex ${scrolled ? "text-[#0D47A1]/75" : "text-[#0D47A1]/80"}`}>
+          <Link href="/about" className="nav-link-hover transition-colors hover:text-[#2196F3]">About</Link>
+          <Link href="/research" className="nav-link-hover transition-colors hover:text-[#2196F3]">Research</Link>
+          <Link href="/team" className="nav-link-hover transition-colors hover:text-[#2196F3]">Team</Link>
+          <Link href="/activity" className="nav-link-hover transition-colors hover:text-[#2196F3]">Programs</Link>
+          <Link href="/alumni" className="nav-link-hover transition-colors hover:text-[#2196F3]">Alumni</Link>
+          <Link href="/certificate" className="nav-link-hover transition-colors hover:text-[#2196F3]">Certificate</Link>
+          <Link href="/contributor" className="nav-link-hover transition-colors hover:text-[#2196F3]">Contributors</Link>
+        </nav>
+
         <div className="relative z-[60] flex items-center gap-3">
-          <span className={`hidden font-mono text-[0.6rem] tracking-[0.18em] md:block ${scrolled || menuOpen ? "text-navy/70" : "text-white/80"}`}>
+          <span className={`hidden font-mono text-[0.6rem] tracking-[0.18em] xl:block ${scrolled ? "text-[#0D47A1]/70" : "text-[#0D47A1]/75"}`}>
             TELKOM UNIVERSITY / BANDUNG
           </span>
-          <button
-            ref={menuButtonRef}
-            type="button"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-expanded={menuOpen}
-            aria-controls="site-navigation"
-            aria-label={menuOpen ? "Tutup navigasi" : "Buka navigasi"}
-            className="group flex min-h-11 min-w-11 items-center justify-center gap-3 border border-current/25 px-3 transition-colors hover:border-primary hover:text-primary"
-          >
-            <span className="font-mono text-[0.68rem] tracking-[0.16em]">{menuOpen ? "CLOSE" : "MENU"}</span>
-            <span className="flex w-5 flex-col gap-[5px]" aria-hidden="true">
-              <span className={`h-px bg-current transition-transform ${menuOpen ? "translate-y-[3px] rotate-45" : ""}`} />
-              <span className={`h-px bg-current transition-transform ${menuOpen ? "-translate-y-[3px] -rotate-45" : ""}`} />
-            </span>
-          </button>
+          <Link href="/research" className={`hidden border px-4 py-2 font-mono text-[0.62rem] uppercase tracking-[0.1em] transition-colors lg:inline-flex ${scrolled ? "border-[#0D47A1]/25 hover:border-[#2196F3] hover:text-[#2196F3]" : "border-[#0D47A1]/30 hover:border-[#2196F3] hover:text-[#2196F3]"}`}>
+            Explore Research ↗
+          </Link>
         </div>
       </div>
 
       </header>
 
-      <nav
-        ref={navigationRef}
-        id="site-navigation"
-        tabIndex={-1}
-        aria-label="Navigasi utama"
-        aria-hidden={!menuOpen}
-        style={{
-          visibility: menuOpen ? "visible" : "hidden",
-          opacity: menuOpen ? 1 : 0,
-          pointerEvents: menuOpen ? "auto" : "none",
-        }}
-        className={`fixed inset-0 z-[60] overflow-y-auto bg-navy text-white transition-[opacity,translate] duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)] focus:outline-none motion-reduce:transition-none ${
-          menuOpen
-            ? "visible translate-y-0 opacity-100"
-            : "invisible pointer-events-none -translate-y-4 opacity-0"
-        }`}
-      >
-        <div className="mx-auto flex min-h-full max-w-[1440px] flex-col px-6 pb-8 pt-24 md:px-14 md:pb-10 md:pt-28">
-          <div className="mb-7 flex items-end justify-between border-b border-white/15 pb-4 md:mb-10">
-            <span className="editorial-label">ANL / NAVIGATION</span>
-            <span className="hidden font-mono text-[0.62rem] tracking-[0.15em] text-white/50 sm:block">
-              ADAPTIVE NETWORK LABORATORY
-            </span>
-          </div>
-          <div className="grid flex-1 grid-cols-1 content-start">
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              style={{ transitionDelay: menuOpen ? "80ms" : "0ms" }}
-              className={`group flex items-center gap-5 border-b border-white/15 py-3 transition-[opacity,transform,color] duration-500 ease-out hover:text-primary md:gap-9 md:py-4 motion-reduce:transition-none ${
-                menuOpen ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-              }`}
-            >
-              <span className="font-mono text-xs text-primary">00</span>
-              <span className="font-display text-3xl uppercase leading-none tracking-tight sm:text-4xl md:text-6xl">Home</span>
-              <span className="ml-auto text-xl transition-transform group-hover:-translate-y-[2px] group-hover:translate-x-[3px]">↗</span>
-            </Link>
-            {navItems.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                style={{ transitionDelay: menuOpen ? `${110 + index * 35}ms` : "0ms" }}
-                className={`group flex items-center gap-5 border-b border-white/15 py-3 transition-[opacity,transform,color] duration-500 ease-out hover:text-primary md:gap-9 md:py-4 motion-reduce:transition-none ${
-                  menuOpen ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-                }`}
-              >
-                <span className="font-mono text-xs text-primary">{String(index + 1).padStart(2, "0")}</span>
-                <span className="font-display text-3xl uppercase leading-none tracking-tight sm:text-4xl md:text-6xl">{item.label}</span>
-                <span className="ml-auto text-xl transition-transform group-hover:-translate-y-[2px] group-hover:translate-x-[3px]">↗</span>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-col justify-between gap-3 font-mono text-[0.6rem] tracking-[0.14em] text-white/45 sm:flex-row">
-            <span>TELKOM UNIVERSITY / BANDUNG, INDONESIA</span>
-            <span>ADAPTIVE NETWORK LABORATORY / TELKOM UNIVERSITY</span>
-          </div>
-        </div>
-      </nav>
     </>
   );
 }

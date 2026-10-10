@@ -32,7 +32,7 @@ export default function ActivityPage() {
       <Header variant="light" />
       <main className="flex-1">
         {/* Hero */}
-        <section className="page-hero bg-navy text-white px-6 md:px-12 py-16 md:py-24">
+        <section className="page-hero bg-navy text-[#E3F2FD] px-6 md:px-12 py-16 md:py-24">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Our Program</h1>
             <p className="text-netschool-light text-lg leading-relaxed max-w-3xl">
@@ -43,7 +43,7 @@ export default function ActivityPage() {
         </section>
 
         {/* Featured programs */}
-        <section className="bg-white py-16 px-6 md:px-12">
+        <section className="bg-[#E3F2FD] py-16 px-6 md:px-12">
           <div className="max-w-7xl mx-auto space-y-12">
             {featured.map((f, i) => (
               <div key={f.title} className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
@@ -53,11 +53,11 @@ export default function ActivityPage() {
                   <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-3 mt-1">{f.title}</h2>
                   <p className="text-text-secondary leading-relaxed mb-5">{f.desc}</p>
                   {f.href ? (
-                    <Link href={f.href} className="inline-block bg-primary hover:bg-primary-dark text-white font-medium py-2.5 px-7 rounded-full transition-colors text-sm">
+                    <Link href={f.href} className="inline-block bg-primary hover:bg-primary-dark text-[#E3F2FD] font-medium py-2.5 px-7 rounded-full transition-colors text-sm">
                       Cek di sini
                     </Link>
                   ) : (
-                    <span className="inline-block bg-gray-300 text-gray-500 font-medium py-2.5 px-7 rounded-full text-sm cursor-not-allowed select-none">
+                    <span className="inline-block bg-gray-300 text-[#0D47A1] font-medium py-2.5 px-7 rounded-full text-sm cursor-not-allowed select-none">
                       Coming Soon
                     </span>
                   )}
@@ -75,8 +75,8 @@ export default function ActivityPage() {
               {programs.map((p) => (
                 <div key={p.title} className="relative rounded-2xl overflow-hidden min-h-[240px] flex flex-col justify-end">
                   <img src={p.image} alt={p.title} className="image-reveal absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                  <div className="relative p-6 text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D47A1]/80 via-black/30 to-transparent" />
+                  <div className="relative p-6 text-[#E3F2FD]">
                     <span className="text-xs font-semibold uppercase tracking-wide text-primary-light">Program</span>
                     <h3 className="text-2xl font-bold mb-1">{p.title}</h3>
                     <p className="text-sm leading-relaxed text-gray-200">{p.desc}</p>

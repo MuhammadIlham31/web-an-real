@@ -69,7 +69,7 @@ export default function DaftarNetSchoolPage() {
     }
   }
 
-  const inputCls = "w-full rounded-xl border border-border px-4 py-3 text-sm text-text-primary bg-white focus:outline-none focus:border-primary transition-colors";
+  const inputCls = "w-full rounded-xl border border-border px-4 py-3 text-sm text-text-primary bg-[#E3F2FD] focus:outline-none focus:border-primary transition-colors";
   const labelCls = "block text-sm font-medium text-text-primary mb-1.5";
 
   return (
@@ -153,7 +153,7 @@ export default function DaftarNetSchoolPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-primary hover:bg-primary-dark disabled:opacity-50 text-white font-medium py-3 px-8 rounded-full transition-colors text-sm"
+              className="w-full bg-primary hover:bg-primary-dark disabled:opacity-50 text-[#E3F2FD] font-medium py-3 px-8 rounded-full transition-colors text-sm"
             >
               {submitting ? "Mengirim..." : "Kirim Pendaftaran"}
             </button>

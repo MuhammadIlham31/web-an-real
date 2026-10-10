@@ -52,7 +52,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left side - Form */}
-      <div className="w-full md:w-3/5 bg-white flex flex-col items-center justify-center p-8 relative">
+      <div className="w-full md:w-3/5 bg-[#E3F2FD] flex flex-col items-center justify-center p-8 relative">
         {/* Home button */}
         <Link href="/" className="absolute top-6 left-6 text-text-secondary hover:text-text-primary transition-colors" aria-label="Kembali ke beranda">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -103,7 +103,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full text-center bg-primary hover:bg-primary-dark disabled:opacity-50 text-white font-medium py-3 px-8 rounded-lg transition-colors shadow-md text-sm"
+              className="w-full text-center bg-primary hover:bg-primary-dark disabled:opacity-50 text-[#E3F2FD] font-medium py-3 px-8 rounded-lg transition-colors shadow-md text-sm"
             >
               {loading ? "Memproses..." : "Login"}
             </button>
@@ -119,14 +119,14 @@ export default function LoginPage() {
           className="absolute inset-0 h-full w-full object-cover opacity-20 grayscale"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/25" />
-        <div className="absolute bottom-10 left-10 right-10 border-t border-white/25 pt-4 font-mono text-[0.6rem] tracking-[0.15em] text-white/55">
+        <div className="absolute bottom-10 left-10 right-10 border-t border-[#E3F2FD]/25 pt-4 font-mono text-[0.6rem] tracking-[0.15em] text-[#E3F2FD]/55">
           TELKOM UNIVERSITY / BANDUNG
         </div>
         <div className="relative z-10 px-8 text-center">
           <img src="/assets/logo.png" width={120} height={120} alt="" className="mx-auto mb-6 opacity-90" />
           <p className="font-mono text-[0.65rem] tracking-[0.18em] text-primary">ADAPTIVE NETWORK</p>
-          <h2 className="mt-3 text-4xl text-white">Laboratory</h2>
-          <p className="mt-4 text-sm text-white/60">Admin portal</p>
+          <h2 className="mt-3 text-4xl text-[#E3F2FD]">Laboratory</h2>
+          <p className="mt-4 text-sm text-[#E3F2FD]/60">Admin portal</p>
         </div>
       </div>
     </div>

@@ -55,7 +55,7 @@ export default function PracticumPage() {
     <div className="min-h-screen flex flex-col">
       <Header variant="light" />
       <main className="flex-1">
-        <section className="page-hero bg-navy text-white px-6 md:px-12 py-16 md:py-24">
+        <section className="page-hero bg-navy text-[#E3F2FD] px-6 md:px-12 py-16 md:py-24">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Practicum</h1>
             <p className="text-netschool-light text-lg leading-relaxed max-w-3xl">
@@ -65,7 +65,7 @@ export default function PracticumPage() {
           </div>
         </section>
 
-        <section className="bg-white py-16 px-6 md:px-12">
+        <section className="bg-[#E3F2FD] py-16 px-6 md:px-12">
           <div className="max-w-4xl mx-auto">
             {/* Tabs */}
             <div className="flex gap-2 mb-10 border-b border-border" role="tablist">
@@ -92,7 +92,7 @@ export default function PracticumPage() {
               <ul className="space-y-4">
                 {tab.rules.map((r, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <span className="w-7 h-7 bg-primary text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
+                    <span className="w-7 h-7 bg-primary text-[#E3F2FD] rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
                     <span className="text-text-primary leading-relaxed">{r}</span>
                   </li>
                 ))}
@@ -102,7 +102,7 @@ export default function PracticumPage() {
             {tab.sessions && (
               <div className="overflow-x-auto rounded-2xl border border-border">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-navy text-white">
+                  <thead className="bg-navy text-[#E3F2FD]">
                     <tr>
                       <th className="px-5 py-4 font-semibold">Hari</th>
                       <th className="px-5 py-4 font-semibold">Waktu</th>
@@ -126,7 +126,7 @@ export default function PracticumPage() {
               <div className="space-y-3">
                 {tab.moduls.map((m) => (
                   <div key={m.no} className="flex items-center gap-4 bg-surface rounded-xl border border-border p-5">
-                    <span className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold shrink-0">{m.no}</span>
+                    <span className="w-10 h-10 bg-primary text-[#E3F2FD] rounded-full flex items-center justify-center font-bold shrink-0">{m.no}</span>
                     <div>
                       <h3 className="font-bold text-text-primary">Modul {m.no}</h3>
                       <p className="text-text-secondary text-sm">{m.judul}</p>

@@ -38,7 +38,7 @@ export default function InventoryPage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="page-hero bg-navy text-white px-6 md:px-12 py-16 md:py-24">
+        <section className="page-hero bg-navy text-[#E3F2FD] px-6 md:px-12 py-16 md:py-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">Borrow Item</h1>
@@ -49,9 +49,9 @@ export default function InventoryPage() {
             </div>
             <div className="flex justify-center">
               <svg width="260" height="260" viewBox="0 0 200 200" fill="none">
-                <rect x="40" y="60" width="120" height="80" fill="#16263f" stroke="#1b97df" strokeWidth="2" />
-                <rect x="55" y="75" width="40" height="30" fill="#0b152a" />
-                <circle cx="100" cy="100" r="14" fill="#1b97df" opacity="0.4" />
+                <rect x="40" y="60" width="120" height="80" fill="#16263f" stroke="#2196F3" strokeWidth="2" />
+                <rect x="55" y="75" width="40" height="30" fill="#0D47A1" />
+                <circle cx="100" cy="100" r="14" fill="#2196F3" opacity="0.4" />
                 <rect x="70" y="150" width="60" height="6" rx="3" fill="#64748b" opacity="0.5" />
               </svg>
             </div>
@@ -64,8 +64,8 @@ export default function InventoryPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-12 text-center">Alur Peminjaman</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {flow.map((step, i) => (
-                <div key={i} className="bg-white rounded-2xl p-6 border border-border text-center">
-                  <span className="w-10 h-10 mx-auto mb-4 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                <div key={i} className="bg-[#E3F2FD] rounded-2xl p-6 border border-border text-center">
+                  <span className="w-10 h-10 mx-auto mb-4 bg-primary text-[#E3F2FD] rounded-full flex items-center justify-center font-bold">
                     {i + 1}
                   </span>
                   <p className="text-text-primary font-medium">{step}</p>
@@ -76,7 +76,7 @@ export default function InventoryPage() {
         </section>
 
         {/* List View */}
-        <section className="bg-white py-16 px-6 md:px-12">
+        <section className="bg-[#E3F2FD] py-16 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
               <h2 className="text-4xl md:text-5xl font-bold text-text-primary">List View</h2>
@@ -90,7 +90,7 @@ export default function InventoryPage() {
 
             <div className="overflow-x-auto rounded-2xl border border-border">
               <table className="w-full text-left text-sm">
-                <thead className="bg-navy text-white">
+                <thead className="bg-navy text-[#E3F2FD]">
                   <tr>
                     <th className="px-5 py-4 font-semibold">Gambar</th>
                     <th className="px-5 py-4 font-semibold">Nama Barang</th>

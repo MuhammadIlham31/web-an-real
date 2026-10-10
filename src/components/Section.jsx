@@ -5,7 +5,7 @@ export function SectionHeading({ title, subtitle, dark = false }) {
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-2 ${dark ? "text-gray-400" : "text-text-secondary"}`}>{subtitle}</p>
+        <p className={`mt-2 ${dark ? "text-[#0D47A1]" : "text-text-secondary"}`}>{subtitle}</p>
       )}
     </div>
   );
